@@ -268,7 +268,7 @@ namespace Arkivverket.Arkade.Core.Report
             stream.WriteLine(Resources.Report.LabelArchiveType);
             stream.WriteLine("                </td>");
             stream.WriteLine(@"                <td>");
-            stream.WriteLine(testReport.Summary.ArchiveType.ToString());
+            stream.WriteLine(testReport.Summary.ArchiveType.GetDisplayName(Resources.Report.Culture));
             stream.WriteLine("                </td>");
             stream.WriteLine(@"            </tr>");
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Reflection;
 using Arkivverket.Arkade.Core.Base;
 using Arkivverket.Arkade.Core.Base.Archives;
@@ -43,7 +44,7 @@ namespace Arkivverket.Arkade.Core.Logging
 
             _archiveType = archiveType;
 
-            var message = $"Running {archiveType}-validation: ";
+            var message = $"Running {archiveType.GetDisplayName(CultureInfo.InvariantCulture)}-validation: ";
             Log.Information(message);
 
             if (archiveType is ArchiveType.Siard)

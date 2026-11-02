@@ -364,4 +364,7 @@ Actual checksum: {1}</value>
   <data name="Noark4ValidationNotSupported" xml:space="preserve">
     <value>Validation of Noark4-extracts is not supported</value>
   </data>
+  <data name="ArchiveTypeSpecializedSystem" xml:space="preserve">
+    <value>Specialized system</value>
+  </data>
 </root>

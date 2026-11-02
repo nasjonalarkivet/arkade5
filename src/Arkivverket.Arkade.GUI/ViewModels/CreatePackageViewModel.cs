@@ -60,7 +60,8 @@ namespace Arkivverket.Arkade.GUI.ViewModels
             return ArkadeProcessingState.PackingIsStarted && !ArkadeProcessingState.PackingIsFinished;
         }
 
-        private IList<string> _systemTypeList = Enum.GetNames<ArchiveType>();
+        private IList<ComboBoxItemArchiveType> _systemTypeList = Enum.GetValues<ArchiveType>()
+            .Select(archiveType => new ComboBoxItemArchiveType(archiveType, MetaDataGUI.Culture)).ToList();
 
         private IList<ComboBoxItemRecordStatusWithTooltip> _recordStatusList = new List<ComboBoxItemRecordStatusWithTooltip>
         {
@@ -195,7 +196,7 @@ namespace Arkivverket.Arkade.GUI.ViewModels
             set => SetProperty(ref _metaDataExtractionDate, value);
         }
 
-        public IList<String> SystemTypeList
+        public IList<ComboBoxItemArchiveType> SystemTypeList
         {
             get => _systemTypeList;
             set => SetProperty(ref _systemTypeList, value);

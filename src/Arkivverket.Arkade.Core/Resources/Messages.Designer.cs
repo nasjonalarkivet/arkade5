@@ -225,6 +225,15 @@ namespace Arkivverket.Arkade.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Specialized system.
+        /// </summary>
+        public static string ArchiveTypeSpecializedSystem {
+            get {
+                return ResourceManager.GetString("ArchiveTypeSpecializedSystem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Control of control digits in an account number.
         /// </summary>
         public static string ControlAccountNumberDescription {

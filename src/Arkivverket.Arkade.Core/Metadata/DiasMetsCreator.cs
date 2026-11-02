@@ -461,7 +461,7 @@ namespace Arkivverket.Arkade.Core.Metadata
                 notesWriter.AddVersion(system.Version);
 
             if (!string.IsNullOrWhiteSpace(system.Type) && MetsTranslationHelper.IsValidSystemType(system.Type))
-                notesWriter.AddType(system.Type);
+                notesWriter.AddType(MetsTranslationHelper.NormalizeSystemType(system.Type));
 
             if (!string.IsNullOrWhiteSpace(system.TypeVersion) && MetsTranslationHelper.IsSystemTypeNoark5(system.Type))
                 notesWriter.AddTypeVersion(system.TypeVersion);

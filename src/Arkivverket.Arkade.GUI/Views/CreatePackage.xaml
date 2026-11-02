@@ -718,11 +718,9 @@
                                   materialDesign:HintAssist.Hint="{x:Static lang:MetaDataGUI.SystemType}" 
                                   MinWidth="72"
                                   ItemsSource="{Binding SystemTypeList}"
+                                  DisplayMemberPath="DisplayName" SelectedValuePath="Token"
+                                  SelectedValue="{Binding MetaDataSystem.SystemType, Mode=TwoWay}"
                                   Style="{StaticResource MaterialDesignFloatingHintComboBox}">
-                            <ComboBox.Text>
-                                <Binding Path="MetaDataSystem.SystemType" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
-                                </Binding>
-                            </ComboBox.Text>
                             <ComboBox.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <VirtualizingStackPanel />
@@ -797,11 +795,9 @@
                                   materialDesign:HintAssist.Hint="{x:Static lang:MetaDataGUI.SystemType}" 
                                   MinWidth="72"
                                   ItemsSource="{Binding SystemTypeList}"
+                                  DisplayMemberPath="DisplayName" SelectedValuePath="Token"
+                                  SelectedValue="{Binding MetaDataArchiveSystem.SystemType, Mode=TwoWay}"
                                   Style="{StaticResource MaterialDesignFloatingHintComboBox}">
-                            <ComboBox.Text>
-                                <Binding Path="MetaDataArchiveSystem.SystemType" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
-                                </Binding>
-                            </ComboBox.Text>
                             <ComboBox.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <VirtualizingStackPanel />

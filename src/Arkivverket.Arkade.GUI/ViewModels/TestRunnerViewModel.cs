@@ -444,7 +444,7 @@ namespace Arkivverket.Arkade.GUI.ViewModels
             };
 
             string archiveFileName = archiveSource.FullName;
-            var archiveType = _archive.ArchiveType.ToString();
+            var archiveType = _archive.ArchiveType.GetDisplayName(TestRunnerGUI.Culture);
             // Three states: no package (row hidden), identified package (UUID), package whose METS
             // lacks a valid identity (explicit unknown-marker — hiding the row would disguise the
             // package as a loose archive-extraction input)

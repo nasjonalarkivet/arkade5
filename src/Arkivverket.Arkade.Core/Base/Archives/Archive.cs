@@ -1,6 +1,8 @@
 using System;
 using System.IO;
 using System.Linq;
+using System.Text.Json.Serialization;
+using System.Xml.Serialization;
 
 namespace Arkivverket.Arkade.Core.Base.Archives;
 
@@ -29,6 +31,8 @@ public enum ArchiveType
     Noark3,
     Noark4,
     Noark5,
+    [XmlEnum(ArchiveTypeNames.SpecializedSystemToken)]
+    [JsonStringEnumMemberName(ArchiveTypeNames.SpecializedSystemToken)]
     SpecializedSystem,
     Siard,
 }

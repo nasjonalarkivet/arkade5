@@ -1,10 +1,14 @@
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using Arkivverket.Arkade.Core.Base;
 using Arkivverket.Arkade.Core.Base.Archives;
 using Arkivverket.Arkade.Core.Identify;
 using Arkivverket.Arkade.GUI.Languages;
 using Arkivverket.Arkade.GUI.Models;
+using Arkivverket.Arkade.GUI.Util;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
@@ -53,6 +57,9 @@ namespace Arkivverket.Arkade.GUI.ViewModels
             get => _isArchiveFileNameSelected;
             set => SetProperty(ref _isArchiveFileNameSelected, value);
         }
+
+        public IList<ComboBoxItemArchiveType> ArchiveTypeList { get; } = Enum.GetValues<ArchiveType>()
+            .Select(archiveType => new ComboBoxItemArchiveType(archiveType, LoadArchiveExtractionGUI.Culture)).ToList();
 
         public ArchiveType? ArchiveType
         {
