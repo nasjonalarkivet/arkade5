@@ -35,8 +35,8 @@ public static class ArchiveTypeNames
     {
         return archiveType switch
         {
-            ArchiveType.Noark3 => "Noark 3",
-            ArchiveType.Noark4 => "Noark 4",
+            ArchiveType.Noark3 => "Noark-3",
+            ArchiveType.Noark4 => "Noark-4",
             ArchiveType.Noark5 => "Noark 5",
             ArchiveType.SpecializedSystem =>
                 Messages.ResourceManager.GetString(nameof(Messages.ArchiveTypeSpecializedSystem), culture),

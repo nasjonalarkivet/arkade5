@@ -45,8 +45,8 @@ public class ArchiveTypeNamesTest
     }
 
     [Theory]
-    [InlineData(ArchiveType.Noark3, "en", "Noark 3")]
-    [InlineData(ArchiveType.Noark4, "nb-NO", "Noark 4")]
+    [InlineData(ArchiveType.Noark3, "en", "Noark-3")]
+    [InlineData(ArchiveType.Noark4, "nb-NO", "Noark-4")]
     [InlineData(ArchiveType.Noark5, "nb-NO", "Noark 5")]
     [InlineData(ArchiveType.SpecializedSystem, "en", "Specialized system")]
     [InlineData(ArchiveType.SpecializedSystem, "nb-NO", "Fagsystem")]
