@@ -43,7 +43,7 @@ namespace Arkivverket.Arkade.Core.Logging
 
             _archiveType = archiveType;
 
-            var message = $"Running {archiveType}-validation: ";
+            var message = $"Running {archiveType.GetToken()}-validation: ";
             Log.Information(message);
 
             if (archiveType is ArchiveType.Siard)

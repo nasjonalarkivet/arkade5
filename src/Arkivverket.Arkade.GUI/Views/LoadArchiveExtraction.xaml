@@ -6,19 +6,11 @@
              xmlns:prism="http://prismlibrary.com/"
              xmlns:coreBase="clr-namespace:Arkivverket.Arkade.Core.Base;assembly=Arkivverket.Arkade.Core"
              xmlns:lang="clr-namespace:Arkivverket.Arkade.GUI.Languages"
-             xmlns:archive="clr-namespace:Arkivverket.Arkade.Core.Base.Archives;assembly=Arkivverket.Arkade.Core"
              prism:ViewModelLocator.AutoWireViewModel="True"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1000"
              d:DataContext="{d:DesignData LoadArchiveExtractionViewModel}">
     <Grid Height="350" Margin="15">
-        <Grid.Resources>
-            <ObjectDataProvider x:Key="GetArchiveTypes" MethodName="GetValues" ObjectType="archive:ArchiveType">
-                <ObjectDataProvider.MethodParameters>
-                    <x:Type TypeName="archive:ArchiveType"></x:Type>
-                </ObjectDataProvider.MethodParameters>
-            </ObjectDataProvider>
-        </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="Auto"/>
@@ -60,8 +52,9 @@
             <Label Margin="25 0 0 2" HorizontalAlignment="Left" FontSize="17"
                    Content="{x:StaticExtension lang:LoadArchiveExtractionGUI.ArchiveTypeHeadingText}" />
             <ComboBox Margin="25 0" Width="90" HorizontalAlignment="Center"
-                      ItemsSource="{Binding Source={StaticResource GetArchiveTypes}}"
-                      SelectedItem="{Binding ArchiveType}" Cursor="Hand" 
+                      ItemsSource="{Binding ArchiveTypeList}"
+                      DisplayMemberPath="Token" SelectedValuePath="ArchiveType"
+                      SelectedValue="{Binding ArchiveType}" Cursor="Hand" 
                       IsEnabled="{Binding IsArchiveFileNameSelected}" />
         </StackPanel>
 

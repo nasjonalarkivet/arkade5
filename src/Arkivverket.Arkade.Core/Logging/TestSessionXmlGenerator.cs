@@ -45,7 +45,7 @@ namespace Arkivverket.Arkade.Core.Logging
             log.timestamp = DateTime.Now;
             log.arkadeVersion = ArkadeVersion.Current;
 
-            log.archiveType = archive.ArchiveType.ToString();
+            log.archiveType = archive.ArchiveType.GetToken();
             // archiveUuid is required by testSessionLog.xsd (minOccurs=1), so the element must always be present.
             // The log carries the output package's UUID; coalesce to "-" defensively (matching the test
             // report's placeholder), though a package being created always has an Id.

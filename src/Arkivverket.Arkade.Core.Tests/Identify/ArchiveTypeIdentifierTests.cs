@@ -1,3 +1,4 @@
+using System.IO;
 using Arkivverket.Arkade.Core.Base.Archives;
 using Arkivverket.Arkade.Core.Identify;
 using Arkivverket.Arkade.Core.Tests.UnitTestUtilities;
@@ -51,6 +52,28 @@ namespace Arkivverket.Arkade.Core.Tests.Identify
             
             _archiveTypeIdentifier.IdentifyTypeOfChosenArchiveFile(
                 TestData.FilePath("Archives", "Siard", "diasPackage", "841c0a18-7308-4407-b421-3efaa420d891.tar")).Should().Be(ArchiveType.Siard);
+        }
+
+        [Fact]
+        public void IdentifyTypeOfChosenArchiveFileWithObsoleteSpecializedSystemNameTest()
+        {
+            // Arkade 2.13.0 and 2.13.1 named the archive type SpecializedSystem in the package info file
+            string infoFileContent = File.ReadAllText(TestData.FilePath(
+                    "Archives", "SpecializedSystem", "diasPackage", "bf193afe-4483-4481-b457-e9ba4f19681c.xml"))
+                .Replace("<mets:note>Fagsystem</mets:note>", "<mets:note>SpecializedSystem</mets:note>");
+
+            DirectoryInfo directory = Directory.CreateTempSubdirectory();
+            try
+            {
+                File.WriteAllText(Path.Combine(directory.FullName, "package.xml"), infoFileContent);
+
+                _archiveTypeIdentifier.IdentifyTypeOfChosenArchiveFile(Path.Combine(directory.FullName, "package.tar"))
+                    .Should().Be(ArchiveType.SpecializedSystem);
+            }
+            finally
+            {
+                directory.Delete(recursive: true);
+            }
         }
     }
 }

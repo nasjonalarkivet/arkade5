@@ -87,6 +87,9 @@ namespace Arkivverket.Arkade.Core.Identify
 
             foreach (string note in archiveExtractionTypeAgent.note)
             {
+                if (ArchiveTypeNames.TryParseToken(note, out ArchiveType archiveType))
+                    return archiveType;
+
                 if (note.Contains("fagsystem", StringComparison.OrdinalIgnoreCase))
                     return ArchiveType.SpecializedSystem;
 

@@ -60,7 +60,7 @@ namespace Arkivverket.Arkade.GUI.ViewModels
             return ArkadeProcessingState.PackingIsStarted && !ArkadeProcessingState.PackingIsFinished;
         }
 
-        private IList<string> _systemTypeList = Enum.GetNames<ArchiveType>();
+        private IList<string> _systemTypeList = Enum.GetValues<ArchiveType>().Select(ArchiveTypeNames.GetToken).ToList();
 
         private IList<ComboBoxItemRecordStatusWithTooltip> _recordStatusList = new List<ComboBoxItemRecordStatusWithTooltip>
         {
