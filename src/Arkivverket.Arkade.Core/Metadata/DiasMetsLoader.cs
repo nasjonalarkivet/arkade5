@@ -336,7 +336,7 @@ namespace Arkivverket.Arkade.Core.Metadata
                 string type = notesLoader.LoadType();
 
                 if (type != null)
-                    system.Type = type;
+                    system.Type = MetsTranslationHelper.NormalizeSystemType(type);
 
                 string version = notesLoader.LoadVersion();
 

@@ -338,11 +338,11 @@ namespace Arkivverket.Arkade.CLI
                         "Please check the structure- or info-file. To attempt a forced run, explicitly specify type with parameter \"-t\"";
                     throw new ArgumentException(errorMessage);
                 }
-                Log.Information($"Arkade determined {archive} to be of type {detectedArchiveType}");
+                Log.Information($"Arkade determined {archive} to be of type {detectedArchiveType.Value.GetToken()}");
                 return (ArchiveType) detectedArchiveType;
             }
 
-            if (!Enum.TryParse(archiveTypeString, true, out ArchiveType selectedArchiveType))
+            if (!ArchiveTypeNames.TryParseToken(archiveTypeString, out ArchiveType selectedArchiveType))
             {
                 Log.Error("Unknown archive type");
                 throw new ArgumentException("unknown archive type");
@@ -367,7 +367,7 @@ namespace Arkivverket.Arkade.CLI
 
             ArchiveType archiveType = GetArchiveType(archiveTypeString, archiveSourcePath);
 
-            Log.Information($"{{{command}ing}} {archiveType} archive from source: {archiveSource.FullName}");
+            Log.Information($"{{{command}ing}} {archiveType.GetToken()} archive from source: {archiveSource.FullName}");
 
             return Arkade.LoadArchiveExtraction(archiveSource, archiveType, SupportedLanguage.en);
         }
